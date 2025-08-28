@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz de Teoria Musical 🎶</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+    button {
+      margin: 10px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 12px;
+      background: #ffcc00;
+      color: #000;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #ffaa00;
+      transform: scale(1.05);
+    }
+    .hidden {
+      display: none;
+    }
+    .options button {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      font-size: 1rem;
+    }
+    .feedback {
+      margin: 15px 0;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .score {
+      font-size: 1.2rem;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Tela inicial -->
+    <div id="home-screen">
+      <h1>🎵 Bem-vindo ao Quiz de Teoria Musical 🎶</h1>
+      <p>Teste seus conhecimentos em escalas, campo harmônico e mais! <br>
+      Escolha a dificuldade e veja quantos pontos consegue fazer em 5 perguntas.</p>
+      <button onclick="startGame('easy')">🎶 Fácil</button>
+      <button onclick="startGame('medium')">🎼 Médio</button>
+      <button onclick="startGame('hard')">🎹 Difícil</button>
+    </div>
+
+    <!-- Tela do quiz -->
+    <div id="quiz-screen" class="hidden">
+      <h2 id="question"></h2>
+      <div id="options" class="options"></div>
+      <div id="feedback" class="feedback"></div>
+      <div class="score">Pontuação: <span id="score">0</span></div>
+    </div>
+
+    <!-- Tela final -->
+    <div id="end-screen" class="hidden">
+      <h2>Fim da rodada! ✅</h2>
+      <p>Sua pontuação final foi: <span id="final-score"></span></p>
+      <button onclick="goHome()">🔙 Voltar para início</button>
+    </div>
+  </div>
+
+  <script>
+    const questions = {
+      easy: [
+        { q: "Qual é a escala de Dó maior?", options: ["Dó Ré Mi Fá Sol Lá Si", "Dó Ré Mib Fá Sol Láb Sib", "Dó Ré Mi Fá# Sol Lá Si", "Dó Réb Mib Fá Solb Láb Sib"], answer: 0, explanation: "A escala de Dó maior é natural: Dó, Ré, Mi, Fá, Sol, Lá, Si." },
+        { q: "Quantas notas tem uma escala maior?", options: ["5", "6", "7", "8"], answer: 2, explanation: "A escala maior possui 7 notas distintas." },
+        { q: "Qual é a relativa menor de Dó maior?", options: ["Lá menor", "Ré menor", "Mi menor", "Sol menor"], answer: 0, explanation: "A relativa menor de Dó maior é Lá menor, pois compartilham as mesmas notas." },
+      ],
+      medium: [
+        { q: "Qual é o campo harmônico de Dó maior?", options: ["C, Dm, Em, F, G, Am, Bdim", "C, D, E, F, G, A, B", "Cm, Dm, Em, Fm, Gm, Am, Bdim", "C7, D7, E7, F7, G7, A7, B7"], answer: 0, explanation: "O campo harmônico maior segue o padrão: I, IIm, IIIm, IV, V, VIm, VIIdim." },
+        { q: "Qual é a terça de Mi?", options: ["Sol", "Sol#", "Fá", "Fá#"], answer: 1, explanation: "A terça maior de Mi é Sol#, pois há 4 semitons acima." },
+        { q: "Qual acorde representa o IV grau de Ré maior?", options: ["Sol maior", "Lá maior", "Mi menor", "Fá# menor"], answer: 0, explanation: "O IV grau de Ré maior é Sol maior." },
+      ],
+      hard: [
+        { q: "Qual é o modo dórico de Ré?", options: ["Ré Mi Fá Sol Lá Si Dó", "Ré Mi Fá# Sol Lá Si Dó#", "Ré Mi Fá Sol Lá Sib Dó", "Ré Mi Fá# Sol Lá Sib Dó"], answer: 3, explanation: "O modo dórico de Ré é Ré, Mi, Fá#, Sol, Lá, Sib, Dó." },
+        { q: "Na cadência II-V-I em Dó maior, quais acordes aparecem?", options: ["Dm7 - G7 - Cmaj7", "Em7 - A7 - Dm7", "Am7 - Dm7 - G7", "Fmaj7 - G7 - Cmaj7"], answer: 0, explanation: "A cadência II-V-I em Dó é formada por Dm7 (II), G7 (V) e Cmaj7 (I)." },
+        { q: "Qual tríade é formada por Fá, Lá e Dó?", options: ["Fá maior", "Fá menor", "Ré menor", "Lá menor"], answer: 0, explanation: "A tríade Fá-Lá-Dó é Fá maior (fundamental + terça maior + quinta justa)." },
+      ]
+    };
+
+    let currentQuestions = [];
+    let currentIndex = 0;
+    let score = 0;
+
+    function startGame(level) {
+      currentQuestions = shuffle(questions[level]).slice(0, 5);
+      currentIndex = 0;
+      score = 0;
+      document.getElementById("home-screen").classList.add("hidden");
+      document.getElementById("end-screen").classList.add("hidden");
+      document.getElementById("quiz-screen").classList.remove("hidden");
+      document.getElementById("score").innerText = score;
+      showQuestion();
+    }
+
+    function showQuestion() {
+      if (currentIndex >= currentQuestions.length) {
+        endGame();
+        return;
+      }
+      let q = currentQuestions[currentIndex];
+      document.getElementById("question").innerText = q.q;
+      let optionsDiv = document.getElementById("options");
+      optionsDiv.innerHTML = "";
+      document.getElementById("feedback").innerText = "";
+      q.options.forEach((opt, i) => {
+        let btn = document.createElement("button");
+        btn.innerText = opt;
+        btn.onclick = () => checkAnswer(i);
+        optionsDiv.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(choice) {
+      let q = currentQuestions[currentIndex];
+      if (choice === q.answer) {
+        score++;
+        document.getElementById("feedback").innerText = "✅ Correto!";
+      } else {
+        document.getElementById("feedback").innerText = "❌ Errado! " + q.explanation;
+      }
+      document.getElementById("score").innerText = score;
+      currentIndex++;
+      setTimeout(showQuestion, 4000);
+    }
+
+    function endGame() {
+      document.getElementById("quiz-screen").classList.add("hidden");
+      document.getElementById("end-screen").classList.remove("hidden");
+      document.getElementById("final-score").innerText = score + " / " + currentQuestions.length;
+    }
+
+    function goHome() {
+      document.getElementById("end-screen").classList.add("hidden");
+      document.getElementById("home-screen").classList.remove("hidden");
+    }
+
+    function shuffle(array) {
+      return array.sort(() => Math.random() - 0.5);
+    }
+  </script>
+</body>
+</html>
