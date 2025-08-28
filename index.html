@@ -90,22 +90,43 @@
 
 	<script>
 	  const questions = {
-		easy: [
-		  { q: "Qual é a escala de Dó maior?", options: ["Dó Ré Mi Fá Sol Lá Si", "Dó Ré Mib Fá Sol Láb Sib", "Dó Ré Mi Fá# Sol Lá Si", "Dó Réb Mib Fá Solb Láb Sib"], answer: 0, explanation: "A escala de Dó maior é natural: Dó, Ré, Mi, Fá, Sol, Lá, Si." },
-		  { q: "Quantas notas tem uma escala maior?", options: ["5", "6", "7", "8"], answer: 2, explanation: "A escala maior possui 7 notas distintas." },
-		  { q: "Qual é a relativa menor de Dó maior?", options: ["Lá menor", "Ré menor", "Mi menor", "Sol menor"], answer: 0, explanation: "A relativa menor de Dó maior é Lá menor, pois compartilham as mesmas notas." },
-		],
-		medium: [
-		  { q: "Qual é o campo harmônico de Dó maior?", options: ["C, Dm, Em, F, G, Am, Bdim", "C, D, E, F, G, A, B", "Cm, Dm, Em, Fm, Gm, Am, Bdim", "C7, D7, E7, F7, G7, A7, B7"], answer: 0, explanation: "O campo harmônico maior segue o padrão: I, IIm, IIIm, IV, V, VIm, VIIdim." },
-		  { q: "Qual é a terça de Mi?", options: ["Sol", "Sol#", "Fá", "Fá#"], answer: 1, explanation: "A terça maior de Mi é Sol#, pois há 4 semitons acima." },
-		  { q: "Qual acorde representa o IV grau de Ré maior?", options: ["Sol maior", "Lá maior", "Mi menor", "Fá# menor"], answer: 0, explanation: "O IV grau de Ré maior é Sol maior." },
-		],
-		hard: [
-		  { q: "Qual é o modo dórico de Ré?", options: ["Ré Mi Fá Sol Lá Si Dó", "Ré Mi Fá# Sol Lá Si Dó#", "Ré Mi Fá Sol Lá Sib Dó", "Ré Mi Fá# Sol Lá Sib Dó"], answer: 3, explanation: "O modo dórico de Ré é Ré, Mi, Fá#, Sol, Lá, Sib, Dó." },
-		  { q: "Na cadência II-V-I em Dó maior, quais acordes aparecem?", options: ["Dm7 - G7 - Cmaj7", "Em7 - A7 - Dm7", "Am7 - Dm7 - G7", "Fmaj7 - G7 - Cmaj7"], answer: 0, explanation: "A cadência II-V-I em Dó é formada por Dm7 (II), G7 (V) e Cmaj7 (I)." },
-		  { q: "Qual tríade é formada por Fá, Lá e Dó?", options: ["Fá maior", "Fá menor", "Ré menor", "Lá menor"], answer: 0, explanation: "A tríade Fá-Lá-Dó é Fá maior (fundamental + terça maior + quinta justa)." },
-		]
-	  };
+		  easy: [
+			{ q: "Qual é a escala de Dó maior?", options: ["Dó Ré Mi Fá Sol Lá Si", "Dó Ré Mib Fá Sol Láb Sib", "Dó Ré Mi Fá# Sol Lá Si", "Dó Réb Mib Fá Solb Láb Sib"], answer: 0, explanation: "A escala de Dó maior é natural: Dó, Ré, Mi, Fá, Sol, Lá, Si." },
+			{ q: "Quantas notas tem uma escala maior?", options: ["5", "6", "7", "8"], answer: 2, explanation: "A escala maior possui 7 notas distintas." },
+			{ q: "Qual é a relativa menor de Dó maior?", options: ["Lá menor", "Ré menor", "Mi menor", "Sol menor"], answer: 0, explanation: "A relativa menor de Dó maior é Lá menor, pois compartilham as mesmas notas." },
+			{ q: "Qual é o intervalo entre Dó e Sol?", options: ["3ª maior", "4ª justa", "5ª justa", "6ª menor"], answer: 2, explanation: "Dó a Sol é um intervalo de 5ª justa." },
+			{ q: "Qual nota vem depois do Fá na escala de Dó maior?", options: ["Fá#", "Sol", "Mi", "Lá"], answer: 1, explanation: "Na escala de Dó maior, a nota após Fá é Sol." },
+			{ q: "Quantas semitons tem um intervalo de 3ª maior?", options: ["3", "4", "5", "2"], answer: 1, explanation: "Uma 3ª maior possui 4 semitons." },
+			{ q: "Qual é a nota fundamental da escala de Sol maior?", options: ["Dó", "Sol", "Ré", "Lá"], answer: 1, explanation: "A escala de Sol maior tem como tônica a nota Sol." },
+			{ q: "Qual é a terça de Dó maior?", options: ["Ré", "Mi", "Fá", "Sol"], answer: 1, explanation: "A terça maior de Dó é Mi." },
+			{ q: "Qual é a quinta justa de Ré?", options: ["Lá", "Mi", "Sol", "Fá#"], answer: 0, explanation: "A quinta justa de Ré é Lá." },
+			{ q: "Quantas notas tem uma escala menor natural?", options: ["5", "6", "7", "8"], answer: 2, explanation: "A escala menor natural possui 7 notas distintas." }
+		  ],
+		  medium: [
+			{ q: "Qual é o campo harmônico de Dó maior?", options: ["C, Dm, Em, F, G, Am, Bdim", "C, D, E, F, G, A, B", "Cm, Dm, Em, Fm, Gm, Am, Bdim", "C7, D7, E7, F7, G7, A7, B7"], answer: 0, explanation: "O campo harmônico maior segue o padrão: I, IIm, IIIm, IV, V, VIm, VIIdim." },
+			{ q: "Qual é a terça de Mi?", options: ["Sol", "Sol#", "Fá", "Fá#"], answer: 1, explanation: "A terça maior de Mi é Sol#, pois há 4 semitons acima." },
+			{ q: "Qual acorde representa o IV grau de Ré maior?", options: ["Sol maior", "Lá maior", "Mi menor", "Fá# menor"], answer: 0, explanation: "O IV grau de Ré maior é Sol maior." },
+			{ q: "Qual tríade é formada por Dó, Mi e Sol?", options: ["Dó maior", "Dó menor", "Sol maior", "Mi menor"], answer: 0, explanation: "Dó, Mi e Sol formam a tríade de Dó maior." },
+			{ q: "Qual tétrade forma o acorde de C7?", options: ["C E G B", "C E G Bb", "C Eb G Bb", "C D F A"], answer: 1, explanation: "C7 é formada por C, E, G e Bb." },
+			{ q: "Qual acorde pertence ao V grau de G maior?", options: ["D7", "Cmaj7", "Am7", "Em7"], answer: 0, explanation: "O V grau de G maior é D7." },
+			{ q: "Qual acorde diminuto aparece no VII grau de C maior?", options: ["Bdim", "Cdim", "Gdim", "Ddim"], answer: 0, explanation: "O VII grau do campo harmônico maior é sempre diminuto: Bdim em C maior." },
+			{ q: "Qual é a tríade de Fá menor?", options: ["Fá Ab C", "Fá A C", "Fá Bb D", "Fá G C"], answer: 0, explanation: "Fá, Ab e C formam a tríade de Fá menor." },
+			{ q: "Qual acorde é uma tétrade menor com sétima?", options: ["Cmaj7", "Cm7", "C7", "Cm6"], answer: 1, explanation: "Cm7 é a tétrade menor com sétima menor." },
+			{ q: "Qual acorde pertence ao II grau de D maior?", options: ["Em", "F#m", "G#m", "A"], answer: 1, explanation: "O II grau de D maior é F#m." }
+		  ],
+		  hard: [
+			{ q: "Qual é o modo dórico de Ré?", options: ["Ré Mi Fá Sol Lá Si Dó", "Ré Mi Fá# Sol Lá Si Dó#", "Ré Mi Fá Sol Lá Sib Dó", "Ré Mi Fá# Sol Lá Sib Dó"], answer: 3, explanation: "O modo dórico de Ré é Ré, Mi, Fá#, Sol, Lá, Sib, Dó." },
+			{ q: "Na cadência II-V-I em Dó maior, quais acordes aparecem?", options: ["Dm7 - G7 - Cmaj7", "Em7 - A7 - Dm7", "Am7 - Dm7 - G7", "Fmaj7 - G7 - Cmaj7"], answer: 0, explanation: "A cadência II-V-I em Dó é formada por Dm7 (II), G7 (V) e Cmaj7 (I)." },
+			{ q: "Qual tríade é formada por Fá, Lá e Dó?", options: ["Fá maior", "Fá menor", "Ré menor", "Lá menor"], answer: 0, explanation: "A tríade Fá-Lá-Dó é Fá maior (fundamental + terça maior + quinta justa)." },
+			{ q: "Qual modo grego tem 3ª menor e 7ª menor?", options: ["Jônio", "Dórico", "Frígio", "Mixolídio"], answer: 1, explanation: "O modo dórico possui 3ª menor e 7ª menor." },
+			{ q: "Qual é a cadência autêntica perfeita em G maior?", options: ["D7 -> G", "C -> G", "Am -> D", "G -> D"], answer: 0, explanation: "A cadência autêntica perfeita vai do V grau (D7) para o I grau (G)." },
+			{ q: "Qual progressão harmônica comum é II-V-I em C maior?", options: ["Dm7 - G7 - Cmaj7", "Fmaj7 - G7 - Cmaj7", "Em7 - A7 - Dm7", "Am7 - Dm7 - G7"], answer: 0, explanation: "A progressão II-V-I em C maior é Dm7, G7, Cmaj7." },
+			{ q: "Qual modo grego começa com a sequência T-S-T-T-T-S-T?", options: ["Jônio", "Dórico", "Frígio", "Lócrio"], answer: 2, explanation: "O modo frígio começa com tom-semitom (S-T-T-T-S-T-T). Ajustando para padrão clássico: Frígio = 1 semitom, 2 tons... etc." },
+			{ q: "Qual acorde diminuto aparece no VII grau de D maior?", options: ["C#dim", "Bdim", "Adim", "F#dim"], answer: 0, explanation: "O VII grau do campo harmônico de D maior é C#dim." },
+			{ q: "Qual tétrade forma o acorde de G7?", options: ["G B D F", "G B D F#", "G Bb D F", "G B D A"], answer: 0, explanation: "G7 é formada por G, B, D e F." },
+			{ q: "Qual progressão é chamada de cadência plagal em C maior?", options: ["F -> C", "G -> C", "D -> G", "Am -> G"], answer: 0, explanation: "A cadência plagal vai do IV grau (F) para o I grau (C)."}
+		  ]
+	};
 
 	  let currentQuestions = [];
 	  let currentIndex = 0;
