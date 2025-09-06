@@ -38,30 +38,39 @@
 
   <script>
     const questions = [
-      // Escalas Maiores
-      { question: "Quantos tons e semitons tem a fórmula da escala maior?", options: ["TTSTTTS", "TSTTSTT", "TTTSTTS", "STTTTSS"], answer: 0, explanation: "A escala maior segue a fórmula: Tom, Tom, Semitom, Tom, Tom, Tom, Semitom (TTSTTTS)." },
-      { question: "Qual a armadura de clave da escala de Sol maior?", options: ["Nenhum acidente", "1 sustenido", "2 sustenidos", "1 bemol"], answer: 1, explanation: "Sol maior possui 1 sustenido (F#)." },
-      { question: "Qual é a relativa menor de Dó maior?", options: ["Lá menor", "Mi menor", "Ré menor", "Sol menor"], answer: 0, explanation: "A relativa menor de Dó maior é Lá menor." },
-      { question: "Qual é a 3ª nota da escala de Ré maior?", options: ["F#", "G", "E", "A"], answer: 2, explanation: "A escala de Ré maior é: D, E, F#, G, A, B, C#, D. A 3ª nota é E." },
-      { question: "A escala de Fá maior possui quantos bemóis?", options: ["1 bemol", "2 bemóis", "3 bemóis", "nenhum"], answer: 0, explanation: "Fá maior tem 1 bemol (Bb)." },
-      { question: "Qual é a tonalidade que possui 3 sustenidos na armadura de clave?", options: ["Lá maior", "Sol maior", "Ré maior", "Mi maior"], answer: 0, explanation: "Lá maior possui 3 sustenidos: F#, C#, G#." },
-      { question: "Qual a escala maior que não possui nenhum acidente na armadura de clave?", options: ["Sol maior", "Dó maior", "Fá maior", "Lá maior"], answer: 1, explanation: "Dó maior não possui sustenidos nem bemóis." },
-      { question: "Qual é a nota sensível na escala de Si maior?", options: ["A#", "F#", "C#", "G#"], answer: 0, explanation: "A sensível de Si maior é Lá# (7º grau)." },
-      { question: "A escala de Mi bemol maior possui quantos bemóis?", options: ["2", "3", "4", "5"], answer: 1, explanation: "Mi bemol maior possui 3 bemóis: Bb, Eb, Ab." },
-      { question: "Qual é a dominante de Dó maior?", options: ["Sol", "Fá", "Ré", "Mi"], answer: 0, explanation: "A dominante (5º grau) de Dó maior é Sol." },
+// Escalas Maiores
+{ question: "Qual é a fórmula em tons e semitons da escala maior?", options: ["T–T–ST–T–T–T–ST", "T–ST–T–T–ST–T–T", "ST–T–T–ST–T–T–ST", "T–T–T–ST–T–ST–T"], answer: 0, explanation: "A fórmula da escala maior é: Tom, Tom, Semitom, Tom, Tom, Tom, Semitom." },
+{ question: "Qual é a diferença entre tom e semitom?", options: ["Tom é 2 notas, semitom é 3", "Tom é 2 semitons, semitom é a menor distância", "Tom é 3 semitons, semitom é 2", "Não existe diferença"], answer: 1, explanation: "Tom equivale a 2 semitons. O semitom é a menor distância entre duas notas consecutivas." },
+{ question: "Monte a escala de Dó Maior (C).", options: ["C–D–E–F–G–A–B–C", "C–D–F–G–A–Bb–C", "C–Eb–F–G–Ab–Bb–C", "C–D–E–G–A–B–C"], answer: 0, explanation: "A escala de Dó Maior é formada pelas notas: C, D, E, F, G, A, B." },
+{ question: "Monte a escala de Sol Maior (G).", options: ["G–A–B–C–D–E–F–G", "G–A–B–C–D–E–F#–G", "G–A–Bb–C–D–E–F–G", "G–A–B–D–E–F–G"], answer: 1, explanation: "A escala de Sol Maior tem 1 sustenido: F#." },
+{ question: "Por que a escala de Fá Maior (F) tem Bb?", options: ["Para manter a fórmula T–T–ST–T–T–T–ST", "Para facilitar a digitação", "Porque sempre tem bemol", "Por convenção"], answer: 0, explanation: "O Bb é necessário para respeitar a fórmula da escala maior (sem ele a sequência ficaria errada)." },
+{ question: "Qual o armadura de clave da escala de Ré Maior (D)?", options: ["2 sustenidos", "1 sustenido", "3 sustenidos", "Nenhum"], answer: 0, explanation: "A escala de Ré Maior tem 2 sustenidos: F# e C#." },
+{ question: "Se a escala de Lá Maior (A) tem três sustenidos, quais são eles?", options: ["F#, C#, G#", "F#, G#, A#", "C#, D#, F#", "G, C, D"], answer: 0, explanation: "A escala de Lá Maior possui F#, C# e G#." },
+{ question: "O que são graus da escala?", options: ["Intensidade do som", "Posições numéricas das notas na escala", "Andamento musical", "Tipos de acordes"], answer: 1, explanation: "Os graus são as posições das notas dentro da escala (1º, 2º, 3º, etc.)." },
+{ question: "Qual é a função da tônica (1º grau)?", options: ["Criar tensão", "Estabilidade e repouso", "Movimento melódico", "Notas de passagem"], answer: 1, explanation: "A tônica é o centro tonal, transmite estabilidade e repouso." },
+{ question: "Qual é a função da dominante (5º grau)?", options: ["Dar repouso", "Dar tensão e resolver para a tônica", "Marcar andamento", "Formar tríades menores"], answer: 1, explanation: "O 5º grau cria tensão e tende a resolver no 1º grau." },
+{ question: "Na escala de Mi Maior (E), qual é o 7º grau?", options: ["D#", "C#", "B", "F#"], answer: 0, explanation: "A escala de Mi Maior é: E, F#, G#, A, B, C#, D#. O 7º grau é D#." },
+{ question: "Qual é a relativa menor de Dó Maior?", options: ["Lá menor", "Mi menor", "Ré menor", "Sol menor"], answer: 0, explanation: "A relativa menor de C é Am (compartilham a mesma armadura de clave)." },
+{ question: "A escala de Sib Maior (Bb) tem quantos bemóis?", options: ["1", "2", "3", "Nenhum"], answer: 1, explanation: "Sib Maior tem 2 bemóis: Bb e Eb." },
+{ question: "Qual a diferença entre escala maior e pentatônica maior?", options: ["Pentatônica maior tem 5 notas, escala maior tem 7", "Pentatônica é menor", "São iguais", "A maior sempre tem bemóis"], answer: 0, explanation: "A pentatônica maior contém apenas 5 notas da escala maior, eliminando o 4º e 7º graus." },
+{ question: "Se você está improvisando em Sol Maior, qual nota deve evitar destacar?", options: ["F#", "C", "F natural", "D"], answer: 2, explanation: "Na tonalidade de Sol maior, a nota F natural não pertence à escala, soaria fora do tom." },
 
-      // Acordes
-      { question: "Um acorde maior é formado por quais intervalos?", options: ["3ª maior e 5ª justa", "3ª menor e 5ª justa", "3ª maior e 5ª diminuta", "3ª menor e 5ª aumentada"], answer: 0, explanation: "Um acorde maior é formado pela fundamental, 3ª maior e 5ª justa." },
-      { question: "Qual tríade forma o acorde de Lá menor?", options: ["A, C, E", "A, C#, E", "A, D, F", "A, E, G"], answer: 0, explanation: "Lá menor é formado por A, C e E." },
-      { question: "Qual acorde é formado pelas notas C, E, G, B?", options: ["Cmaj7", "C7", "Cm7", "Cdim"], answer: 0, explanation: "C, E, G, B formam um acorde de Cmaj7." },
-      { question: "Quais são as notas do acorde de Ré maior?", options: ["D, F#, A", "D, F, A", "D, G, B", "D, E, A"], answer: 0, explanation: "O acorde de Ré maior é formado por D, F# e A." },
-      { question: "Um acorde diminuto é formado por quais intervalos?", options: ["3ª menor e 5ª diminuta", "3ª maior e 5ª justa", "3ª menor e 5ª justa", "3ª maior e 5ª aumentada"], answer: 0, explanation: "Um acorde diminuto tem fundamental, 3ª menor e 5ª diminuta." },
-      { question: "Qual acorde é formado pelas notas G, B, D, F?", options: ["Gmaj7", "G7", "Gm7", "Gdim"], answer: 1, explanation: "G, B, D, F formam o acorde G7 (dominante)." },
-      { question: "Qual é a diferença entre Cmaj7 e C7?", options: ["Cmaj7 tem B, C7 tem Bb", "Cmaj7 tem Bb, C7 tem B", "Cmaj7 tem G#, C7 tem F#", "Nenhuma"], answer: 0, explanation: "Cmaj7 = C, E, G, B. C7 = C, E, G, Bb." },
-      { question: "Quais são as notas do acorde de Fá maior?", options: ["F, A, C", "F, Ab, C", "F, G, C", "F, A, D"], answer: 0, explanation: "Fá maior = F, A, C." },
-      { question: "Um acorde menor com sétima menor é chamado de: ", options: ["m7", "maj7", "7", "dim7"], answer: 0, explanation: "Um acorde menor com 7ª menor é escrito como m7." },
-      { question: "Qual acorde é formado pelas notas B, D, F, A?", options: ["Bm7b5", "Bdim", "B7", "Bm7"], answer: 0, explanation: "B, D, F, A formam o acorde meio diminuto (Bm7b5)." }
-    ];
+// Formação de Acordes
+{ question: "O que é um acorde?", options: ["Uma única nota", "Duas notas tocadas juntas", "Três ou mais notas simultâneas", "Som harmônico qualquer"], answer: 2, explanation: "Um acorde é formado por pelo menos três notas soando juntas." },
+{ question: "Como se forma um acorde maior?", options: ["1º, 3º menor e 5º", "1º, 3º maior e 5º", "1º, 2º e 5º", "1º, 4º e 6º"], answer: 1, explanation: "O acorde maior é formado pela tônica, 3ª maior e 5ª justa." },
+{ question: "Como se forma um acorde menor?", options: ["1º, 3º menor e 5º", "1º, 3º maior e 5º", "1º, 2º e 5º", "1º, 4º e 6º"], answer: 0, explanation: "O acorde menor é formado pela tônica, 3ª menor e 5ª justa." },
+{ question: "O que diferencia um acorde maior de um menor?", options: ["A 5ª", "A 3ª", "A 7ª", "Nada"], answer: 1, explanation: "A diferença está no intervalo da 3ª: maior (4 semitons) ou menor (3 semitons)." },
+{ question: "Qual é a fórmula do acorde diminuto?", options: ["1, b3, b5", "1, 3, 5", "1, b3, 5", "1, 3, #5"], answer: 0, explanation: "O acorde diminuto é formado por tônica, 3ª menor e 5ª diminuta." },
+{ question: "Monte o acorde de C (Dó Maior).", options: ["C, E, G", "C, Eb, G", "C, F, G", "C, E, A"], answer: 0, explanation: "C Maior é formado por C, E e G." },
+{ question: "Monte o acorde de Am (Lá menor).", options: ["A, C, E", "A, C#, E", "A, D, F", "A, E, G"], answer: 0, explanation: "Am é formado por A, C e E." },
+{ question: "Monte o acorde de G7 (Sol com sétima menor).", options: ["G, B, D, F", "G, B, D, F#", "G, Bb, D, F", "G, C, E, F"], answer: 0, explanation: "G7 é formado por G, B, D e F." },
+{ question: "O que é uma tríade?", options: ["Acorde de 2 notas", "Acorde de 3 notas", "Acorde de 4 notas", "Escala menor"], answer: 1, explanation: "Tríade é um acorde com três notas: fundamental, terça e quinta." },
+{ question: "O que é um acorde de sétima?", options: ["Acorde de 3 notas", "Acorde com fundamental, terça, quinta e sétima", "Escala maior", "Acorde aumentado"], answer: 1, explanation: "Acorde de sétima tem 4 notas: fundamental, 3ª, 5ª e 7ª." },
+{ question: "Qual é a diferença entre C7 e Cmaj7?", options: ["C7 tem Bb, Cmaj7 tem B", "C7 tem B, Cmaj7 tem Bb", "C7 tem G#, Cmaj7 tem F#", "Nenhuma"], answer: 0, explanation: "Cmaj7 = C, E, G, B. C7 = C, E, G, Bb." },
+{ question: "Quais acordes surgem naturalmente da escala de Dó Maior?", options: ["C, Dm, Em, F, G, Am, Bdim", "C, D, E, F, G, A, B", "Cm, Dm, Em, Fm, Gm, Am, Bdim", "C, D7, E7, F7, G7, A7, B7"], answer: 0, explanation: "O campo harmônico de C é: C, Dm, Em, F, G, Am, Bdim." },
+{ question: "No campo harmônico de Sol Maior, qual é o acorde do 2º grau?", options: ["Am", "Bm", "Cm", "Dm"], answer: 1, explanation: "O 2º grau de Sol Maior é Am (A menor)." },
+{ question: "Por que estudar escalas maiores ajuda na formação de acordes?", options: ["Porque escalas e acordes não têm relação", "Porque os acordes são derivados dos graus da escala", "Porque facilita o ritmo", "Porque aumenta a velocidade"], answer: 1, explanation: "Os acordes são construídos empilhando notas dos graus da escala maior." }
+];
 
     let currentQuestion = 0;
     let score = 0;
